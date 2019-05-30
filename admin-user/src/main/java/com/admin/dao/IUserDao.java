@@ -1,8 +1,13 @@
 package com.admin.dao;
 
-public class IUserDao {
+import com.admin.common.user.UserEntity;
+import com.admin.common.user.UserEntityDetail;
 
-    public void saveUser(){
+public interface IUserDao {
 
-    }
+    void saveUser(UserEntity userEntity);
+
+    UserEntity getUserByUserName(String userName);
+
+    UserEntityDetail getUserDetailByUserName(String userName);
 }

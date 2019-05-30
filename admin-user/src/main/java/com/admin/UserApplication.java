@@ -1,13 +1,15 @@
 package com.admin;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UserServiceApplication {
+@MapperScan("com.admin.dao")
+public class UserApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(UserServiceApplication.class, args);
+		SpringApplication.run(UserApplication.class, args);
 	}
 
 }
