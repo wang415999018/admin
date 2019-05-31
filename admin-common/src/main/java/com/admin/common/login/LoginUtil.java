@@ -4,6 +4,7 @@ import com.admin.common.ecrypt.md5.MD5Util;
 import com.admin.common.filter.CurrentRequest;
 import com.admin.common.log.LogUtil;
 import com.alibaba.fastjson.JSON;
+import org.springframework.format.number.money.CurrencyUnitFormatter;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
@@ -65,7 +66,15 @@ public class LoginUtil {
         return null;
     }
 
-    public boolean checkLogin(){
+    public static void loginOut(){
+        HttpServletResponse response = CurrentRequest.getResponse();
+        Cookie loginInfoCookie = new Cookie("LOGIN_INFO","");
+        Cookie signCookie = new Cookie("sign","");
+        response.addCookie(loginInfoCookie);
+        response.addCookie(signCookie);
+    }
+
+    public static boolean checkLogin(){
         return getLoginInfo()==null?false:true;
     }
 

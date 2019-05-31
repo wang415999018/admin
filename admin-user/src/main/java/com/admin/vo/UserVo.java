@@ -23,6 +23,7 @@ public class UserVo {
     public static UserVo toVo(UserEntity userEntity){
         UserVo vo = new UserVo();
         vo.setUserName(userEntity.getUserName());
+        vo.setPassword(userEntity.getPassword());
         return vo;
     }
 
